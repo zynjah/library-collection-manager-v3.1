@@ -1,0 +1,302 @@
+@font-face {
+  font-family: "Orange Avenue";
+  src: url("../../.fonts/OrangeAvenueDEMO-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --background: #f4efe8;
+  --surface: #ffffff;
+  --ink: #1e2b27;
+  --muted: #68736d;
+  --primary: #2f614f;
+  --primary-soft: #e0ede7;
+  --border: #dce3dd;
+  --danger: #a64b45;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--ink);
+  font-family: "D-DIN", "D-DIN Condensed", "Segoe UI", Arial, sans-serif;
+}
+
+.auth-shell {
+  width: min(1120px, calc(100% - 40px));
+  min-height: 100vh;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 460px;
+  gap: 72px;
+  align-items: center;
+}
+
+.brand {
+  display: inline-block;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: "Orange Avenue", "Cormorant Garamond", serif;
+  font-size: clamp(34px, 4vw, 72px);
+  font-weight: 700;
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+}
+
+.eyebrow {
+  margin-top: 48px;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+h1 {
+  max-width: 600px;
+  margin: 16px 0;
+  font-size: clamp(24px, 2.6vw, 36px);
+  font-family: "DM Sans", Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.intro-copy,
+.role-list,
+.muted,
+.notice,
+.signup-note,
+.auth-panel label,
+.auth-panel input,
+.auth-panel select,
+.auth-panel button,
+.auth-loading p {
+  font-family: "D-DIN", "D-DIN Condensed", "Segoe UI", Arial, sans-serif;
+}
+
+.intro-copy {
+  max-width: 530px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.role-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 30px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.role-list div { display: flex; align-items: center; gap: 10px; }
+.role-dot { width: 10px; height: 10px; border-radius: 50%; }
+.student { background: #3d7a68; }
+.librarian { background: #d28737; }
+.admin { background: #4c5e87; }
+
+.auth-card {
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(31, 40, 35, .1);
+}
+
+body,
+button,
+input,
+label,
+select,
+textarea {
+  font-family: "D-DIN", "D-DIN Condensed", "Segoe UI", Arial, sans-serif;
+}
+
+.auth-choice {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  padding: 6px;
+  background: #f1f2ef;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+}
+
+.choice-button {
+  padding: 12px 10px;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+}
+
+.choice-button:hover {
+  color: var(--ink);
+  border-color: rgba(30, 43, 39, 0.12);
+}
+
+.choice-button.active {
+  background: #ffffff;
+  color: var(--ink);
+  border-color: rgba(30, 43, 39, 0.08);
+  box-shadow: 0 2px 10px rgba(30, 43, 39, 0.08);
+}
+.auth-mode-panel {
+  margin-top: 26px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .16s ease, transform .16s ease;
+}
+
+.auth-mode-panel:not([hidden]) {
+  display: block;
+}
+
+.auth-mode-panel.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.auth-mode-panel.is-leaving {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+#loginPanel.auth-mode-panel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.auth-mode-panel h2 {
+  margin: 0 0 8px;
+  font-size: clamp(30px, 2vw, 40px);
+  letter-spacing: -.04em;
+  font-weight: 700;
+  line-height: 1.05;
+}
+.auth-panel { margin-top: 26px; }
+.auth-panel h2 { margin: 0 0 8px; font-size: 28px; }
+.muted { color: var(--muted); line-height: 1.5; }
+.auth-panel label { display: block; margin-top: 17px; font-size: 13px; font-weight: 700; }
+.auth-panel input, .auth-panel select {
+  width: 100%;
+  display: block;
+  margin-top: 7px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  background: white;
+  color: var(--ink);
+  font: inherit;
+}
+.primary-button {
+  width: 100%;
+  margin-top: 22px;
+  padding: 13px;
+  border: 0;
+  border-radius: 0;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  font-weight: 800;
+}
+.secondary-button {
+  width: 100%;
+  margin-top: 22px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+.secondary-button:hover { background: var(--primary-soft); }
+.signup-note {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: 0;
+  background: var(--primary-soft);
+}
+.signup-note-mark {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  place-items: center;
+  border-radius: 0;
+  background: var(--primary);
+  color: white;
+  font-size: 20px;
+  line-height: 1;
+}
+.signup-note strong { font-size: 14px; }
+.signup-note p { margin: 4px 0 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.notice { min-height: 20px; margin-top: 18px; color: var(--primary); font-size: 14px; font-weight: 700; }
+.notice.error { color: var(--danger); }
+
+.auth-loading,
+.app-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 18px;
+  background: var(--background);
+  color: var(--ink);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+}
+
+.auth-loading.show,
+.app-loading {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.auth-loading p,
+.app-loading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .05em;
+}
+
+.loading-rule,
+.app-loading-mark {
+  width: 72px;
+  height: 3px;
+  background: var(--primary);
+  animation: loadingPulse 1s ease-in-out infinite;
+}
+
+@keyframes loadingPulse {
+  0%, 100% { transform: scaleX(.45); opacity: .45; }
+  50% { transform: scaleX(1); opacity: 1; }
+}
+
+.app-loading.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 850px) {
+  .auth-shell { grid-template-columns: 1fr; gap: 30px; padding: 30px 0; }
+  .eyebrow { margin-top: 40px; }
+}
